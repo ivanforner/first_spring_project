@@ -3,6 +3,7 @@ package br.com.alura.screenmatch;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import br.com.alura.screenmatch.service.ConsumoApi;
 
 
 /*
@@ -18,7 +19,11 @@ public class ScreenmatchApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("Hello World!");
+		var api = new ConsumoApi();
+		String url = "http://omdbapi.com/?t=gilmore+girls&Season=1&apikey=9613a928";
+		var json = api.ObterDados(url);
+
+		System.out.println(json);
 	}
 
 }
